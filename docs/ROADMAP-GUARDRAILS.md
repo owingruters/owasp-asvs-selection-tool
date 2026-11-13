@@ -25,6 +25,6 @@ Enforcement is deliberately light at the start so early exploration is fast. Tur
 - [ ] Required review (CODEOWNERS) once there is more than one maintainer
 - [ ] Raise coverage threshold (currently 60% to keep early work fast)
 - [ ] Signed commits (or Sigstore gitsign) required
-- [ ] GitHub settings: secret scanning + push protection, Dependabot alerts/security updates, private vulnerability reporting
+- [x] GitHub settings: secret scanning + push protection, Dependabot alerts/security updates, private vulnerability reporting
 - [ ] SBOM generation and signed, provenance-attested releases (SLSA)
 - [ ] Enable `dependency-review` and Scorecard as required checks; track the Scorecard score

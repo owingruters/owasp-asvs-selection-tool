@@ -22,7 +22,7 @@ Accounts, backend, pass/fail or evidence tracking, ticket integrations (Jira, Gi
 ## Constraints
 
 - Static site on GitHub Pages; everything runs in the browser.
-- Official ASVS data is bundled unchanged under `data/asvs/`, pinned to the `v5.0.0` tag with a checksum. License: CC BY-SA 4.0 (our code: MIT).
+- Official ASVS data is bundled unchanged under `data/asvs/`, pinned to the `v5.0.0_release` tag (commit `5cf9b03`) with a checksum. License: CC BY-SA 4.0 (our code: MIT).
 - Every export with ASVS text carries attribution and the license notice, plus "Unofficial, not affiliated with OWASP".
 - The Save file records the ASVS version it was made from and has a `schemaVersion`. A JSON Schema is published.
 - The PDF is generated in the browser from HTML and print CSS. Similar structure to the official PDF, own styling, no OWASP logo. An exact-output CLI using OWASP's own pipeline is a possible later add-on.

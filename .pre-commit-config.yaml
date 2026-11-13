@@ -2,6 +2,8 @@
 # Install: pre-commit install --install-hooks --hook-type pre-commit --hook-type commit-msg
 minimum_pre_commit_version: '3.0.0'
 default_install_hook_types: [pre-commit, commit-msg]
+# Official ASVS content must stay byte-for-byte unmodified (checksum-tested).
+exclude: ^data/asvs/
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
