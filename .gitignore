@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors / IDEs
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Secrets and local config: never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets/
+
+# AI tool local state
+.claude/settings.local.json
+.claude/worktrees/
+WORKLOG.md
+
+# Dependencies and build output (generic; extended when the stack is chosen)
+node_modules/
+.venv/
+__pycache__/
+dist/
+build/
+coverage/
+*.log
