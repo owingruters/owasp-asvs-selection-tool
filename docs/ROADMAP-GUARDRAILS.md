@@ -13,17 +13,17 @@ Enforcement is deliberately light at the start so early exploration is fast. Tur
 
 ## Turn on when the stack is chosen
 
-- [ ] Linter + formatter, type checker (strictest sensible setting), test runner, with one command each in `AGENTS.md`
-- [ ] Lockfile committed; Dependabot ecosystem added
-- [ ] CodeQL: set language(s) and enable triggers in `.github/workflows/codeql.yml`
-- [ ] Pre-commit hooks for the stack's linter/formatter; CI runs lint, types, tests, build
-- [ ] ASVS-mapped security checklist for this app (which requirements apply, which are verified how)
+- [x] Linter + formatter, type checker (strict), test runner, one command each in `AGENTS.md`
+- [x] Lockfile committed; Dependabot npm ecosystem added
+- [x] CodeQL enabled for JavaScript/TypeScript
+- [x] Pre-commit hooks and CI run format, lint, types, tests, audit and e2e
+- [ ] ASVS-mapped security checklist: first pass in `docs/security/asvs-checklist.md`; finish once data is bundled
 
 ## Turn on when the app matures
 
 - [ ] Branch protection / ruleset on `main`: PRs only, required status checks, up-to-date branch, no force-push, linear history
 - [ ] Required review (CODEOWNERS) once there is more than one maintainer
-- [ ] Coverage threshold in CI
+- [ ] Raise coverage threshold (currently 60% to keep early work fast)
 - [ ] Signed commits (or Sigstore gitsign) required
 - [ ] GitHub settings: secret scanning + push protection, Dependabot alerts/security updates, private vulnerability reporting
 - [ ] SBOM generation and signed, provenance-attested releases (SLSA)

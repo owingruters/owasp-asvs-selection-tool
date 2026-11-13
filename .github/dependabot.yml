@@ -5,8 +5,18 @@ updates:
     schedule:
       interval: weekly
     commit-message:
-      prefix: "ci"
+      prefix: 'ci'
     groups:
       actions:
-        patterns: ["*"]
-  # Add the package ecosystem (npm, pip, cargo, ...) here once the stack is chosen.
+        patterns: ['*']
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: 'chore'
+    groups:
+      dev-dependencies:
+        dependency-type: development
+      production-dependencies:
+        dependency-type: production

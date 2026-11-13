@@ -6,23 +6,34 @@ Rules for AI coding agents (and humans) working in this repository. This file fo
 
 ASVS selection tool: helps people select and scope requirements from the [OWASP Application Security Verification Standard (ASVS)](https://owasp.org/www-project-application-security-verification-standard/).
 
-> Status: foundation only. Stack, architecture and commands are not decided yet. When they are, fill in the **Commands** and **Architecture** sections below.
+It is an **unofficial** tool, not affiliated with or endorsed by OWASP. Never use OWASP logos or branding. Full product definition: [`docs/product-spec.md`](docs/product-spec.md).
+
+**ASVS baseline: v5.0.0.** Cite requirements with the version prefix, e.g. `v5.0.0-1.2.5`, in code comments, PRs and the checklist ([`docs/security/asvs-checklist.md`](docs/security/asvs-checklist.md)) for any security-relevant change.
 
 ## Commands
 
-_To be filled in once the stack is chosen. Every project must expose these, and agents must run them before declaring work done:_
+Agents must run these before declaring work done:
 
-- Install: `TBD`
-- Lint / format check: `TBD`
-- Type check: `TBD`
-- Test: `TBD`
-- Build: `TBD`
-
-Always available now: `pre-commit run --all-files`
+- Install: `npm ci`
+- Dev server: `npm run dev`
+- Format check / fix: `npm run format:check` / `npm run format`
+- Lint: `npm run lint`
+- Type check: `npm run typecheck`
+- Unit tests + coverage: `npm test`
+- End-to-end tests: `npm run test:e2e` (needs `npx playwright install chromium` once)
+- Build: `npm run build`
+- Everything the hooks run: `pre-commit run --all-files`
 
 ## Architecture
 
-_TBD. Record decisions in `docs/adr/` (one short Markdown file per decision)._
+Static, client-side single-page app (TypeScript strict, Vite, React). No backend, accounts or database; nothing leaves the browser. Decisions are recorded in `docs/adr/` (one short Markdown file per decision).
+
+Rules specific to this stack:
+
+- Never use `dangerouslySetInnerHTML`, `innerHTML`, `eval` or `new Function`. ESLint enforces this.
+- No third-party scripts, fonts or CDNs at runtime. The Content-Security-Policy in `index.html` must stay strict; do not loosen it without asking.
+- Data under `data/asvs/` is official OWASP ASVS content (CC BY-SA 4.0). Do not edit it. Our code is MIT. Every export that contains ASVS text must carry the attribution and license notice.
+- Validate all files the user opens (saved selections) against the schema before using them.
 
 ## Working agreements
 
