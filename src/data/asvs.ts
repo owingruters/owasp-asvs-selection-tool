@@ -1,3 +1,4 @@
+import { get, isObj, type Obj } from '../core/guards';
 import raw from '../../data/asvs/OWASP_Application_Security_Verification_Standard_5.0.0_en.json';
 
 /** ASVS level a requirement first applies at. Higher levels include the lower ones. */
@@ -30,17 +31,6 @@ export interface AsvsDataset {
   readonly version: string;
   readonly chapters: readonly Chapter[];
   readonly requirements: readonly Requirement[];
-}
-
-type Obj = Record<string, unknown>;
-
-function isObj(value: unknown): value is Obj {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
-
-/** Own-property read only, so keys like "__proto__" in untrusted JSON are never followed. */
-function get(o: Obj, key: string): unknown {
-  return Object.getOwnPropertyDescriptor(o, key)?.value as unknown;
 }
 
 function str(o: Obj, key: string, where: string): string {
